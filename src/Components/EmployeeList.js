@@ -61,7 +61,7 @@ function EmployeeList() {
            {!loading && 
             <tbody className="bg-white ">
                 {employees.map((employee)=> (
-                    <EmployeeRow deleteEmployee={deleteEmployee} employee={employee} key={employee.id}/>
+                    <EmployeeRow deleteEmployee={deleteEmployee}  employee={employee} key={employee.id}/>
                 ))}
           </tbody>}
           </table>
