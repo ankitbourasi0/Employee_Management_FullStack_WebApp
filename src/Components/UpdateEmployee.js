@@ -31,7 +31,11 @@ const UpdateEmployee = () => {
       
 const updateEmployee = (e)=>{
 e.preventDefault()
-
+    EmployeeService.updateEmployee(employee,id).then((response)=>{
+        navigate("/employeeList")
+    }).catch((error)=>{
+        console.log(error);
+    })
 }
   return (
     <div className="flex max-w-2xl shadow border-b mx-auto">
