@@ -22,6 +22,16 @@ function EmployeeList() {
         fetchData()
    }, [])
    
+   const deleteEmployee = (e,id)=>{
+     e.preventDefault()
+    EmployeeService.deleteEmployee(id).then((res) => {
+      if (employees) {
+        setEmployees((prevElemet) =>{
+          return prevElemet.filter((employee) => employee.id !== id)
+        }) 
+      }
+    })
+   }
   return (
     <>
       <div className="container mx-auto my-8">
@@ -51,7 +61,7 @@ function EmployeeList() {
            {!loading && 
             <tbody className="bg-white ">
                 {employees.map((employee)=> (
-                    <EmployeeRow employee={employee} key={employee.id}/>
+                    <EmployeeRow deleteEmployee={deleteEmployee} employee={employee} key={employee.id}/>
                 ))}
           </tbody>}
           </table>
